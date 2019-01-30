@@ -15,7 +15,7 @@ var connection = mysql.createConnection({
   database: "top_songsDB"
 });
 
-connection.connect(function(err) {
+connection.connect(function (err) {
   if (err) throw err;
   runSearch();
 });
@@ -26,18 +26,36 @@ function runSearch() {
       name: "action",
       type: "default",
       message: "What is the ID of the product you would like to buy?",
-    
-    })
-    .then(function(answer) {
-      switch (answer.action) {
-      case "Find product":
-        // return product information from table
-        
-        break;
 
-        connection.end();
-        break;
+    })
+    .then(function (answer) {
+      switch (answer.action) {
+        case "Find product":
+          // return product information from table
+
+          break;
+
+          connection.end();
+          break;
+      }
+    });
+
+  inquirer
+    .prompt({
+      name: "action",
+      type: "default",
+      message: "How many units would you like to purchase?",
+
+    })
+    .then(function (answer) {
+      switch (answer.action) {
+        case "Find product":
+          // return product information from table
+
+          break;
+
+          connection.end();
+          break;
       }
     });
 }
-
